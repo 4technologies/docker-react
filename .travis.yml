@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker  
+
+before_before_install:
+    - docker build -t deepak/docker-react -f Dockerfile.dev Dockerfile.dev .
+
+script:
+  - docker run deepak/docker-react npm run test -- --coverage
